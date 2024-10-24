@@ -4,6 +4,7 @@ import { AuthService } from './auth.service';
 import { AuthController } from './auth.controller';
 import { FacebookStrategy } from './facebook.strategy';
 import { UserModule } from '../user/user.module';
+import { FacebookService } from '../facebook/facebook.service';
 
 @Module({
   imports: [
@@ -11,6 +12,6 @@ import { UserModule } from '../user/user.module';
     UserModule,
   ],
   controllers: [AuthController],
-  providers: [AuthService, FacebookStrategy],
+  providers: [AuthService, FacebookService, FacebookStrategy],
 })
 export class AuthModule {}

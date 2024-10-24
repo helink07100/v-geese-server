@@ -1,6 +1,7 @@
 import { Controller, Get, Req, Res, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
-import { Request, Response } from 'express';
+import { Response } from 'express';
+import { AuthenticatedRequest } from '../types/express-request.interface'; // 导入扩展后的 Request 类型
 
 @Controller('auth')
 export class AuthController {
@@ -12,7 +13,10 @@ export class AuthController {
 
   @Get('facebook/callback')
   @UseGuards(AuthGuard('facebook'))
-  async facebookLoginCallback(@Req() req: Request, @Res() res: Response) {
+  async facebookLoginCallback(
+    @Req() req: AuthenticatedRequest,
+    @Res() res: Response,
+  ) {
     const user = req.user;
     return res.json(user); // 返回用户数据
   }
