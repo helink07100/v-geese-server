@@ -19,7 +19,7 @@ export class FacebookController {
 
     // 返回删除状态的追踪链接和确认码
     return {
-      url: `https://yourdomain.com/facebook/deletion-status?id=${userId}`,
+      url: `https://fb.v-geese.com/facebook/deletion-status?id=${userId}`,
       confirmation_code: userId,
     };
   }

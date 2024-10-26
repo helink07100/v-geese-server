@@ -9,7 +9,7 @@ export class FacebookStrategy extends PassportStrategy(Strategy, 'facebook') {
     super({
       clientID: process.env.FACEBOOK_APP_ID,
       clientSecret: process.env.FACEBOOK_APP_SECRET,
-      callbackURL: 'https://yourdomain.com/auth/facebook/callback',
+      callbackURL: 'https://fb.v-geese.com/auth/facebook/callback',
       profileFields: ['id', 'displayName', 'email', 'photos'],
     });
   }
